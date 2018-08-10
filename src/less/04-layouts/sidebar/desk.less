@@ -1,0 +1,59 @@
+body > .page {
+  display: block;
+  height: 100vh;
+}
+
+.page-header {
+  display: block;
+  width: 32rem;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.page-body {
+  box-sizing: border-box;
+  display: block;
+  padding: 5rem 0 0 32rem;
+  width: 100%;
+}
+
+.page-cover {
+  margin: -5rem 0 5rem;
+}
+
+.page-main,
+.page-copyright {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: @maxPageWidth;
+}
+
+.page-copyright {
+  padding: @baseline @gutter;
+}
+
+.page-header > .anchor {
+  display: none;
+}
+
+.page-headernav {
+  background: none;
+  padding: @baseline 0;
+  position: static;
+  transform: none;
+  visibility: visible;
+
+  .search {
+    margin: 0 (@gutter / 2) @baseline * 2;
+  }
+}
+
+.page-footer {
+  box-sizing: border-box;
+  margin: @baseline auto;
+  max-width: @maxPageWidth;
+}

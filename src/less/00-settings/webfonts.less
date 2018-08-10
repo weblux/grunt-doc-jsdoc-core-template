@@ -1,0 +1,46 @@
+//
+// Webfonts
+//
+// 100 = thin
+// 200 = extra-light
+// 300 = light
+// 400 = normal, book
+// 500 = medium
+// 600 = demi-bold
+// 700 = bold
+// 800 = heavy
+// 900 = black
+// --------------------------------------------------------
+.style(@style) when (@style = normal) { @fs: n; }
+.style(@style) when (@style = italic) { @fs: i; }
+.weight(@weight) when (@weight = 100) { @fw: 1; }
+.weight(@weight) when (@weight = 200) { @fw: 2; }
+.weight(@weight) when (@weight = 300) { @fw: 3; }
+.weight(@weight) when (@weight = 400) { @fw: 4; }
+.weight(@weight) when (@weight = 500) { @fw: 5; }
+.weight(@weight) when (@weight = 600) { @fw: 6; }
+.weight(@weight) when (@weight = 700) { @fw: 7; }
+.weight(@weight) when (@weight = 800) { @fw: 8; }
+.weight(@weight) when (@weight = 900) { @fw: 9; }
+
+// @fontPath: 'http://localhost/AEM/cdn/clientlibs/default';
+@fontPath: '//cdn.public.lu';
+
+.font(@family; @style; @weight) {
+  @font-face {
+    .style(@style);
+    .weight(@weight);
+    font-family: @family;
+    font-style: @style;
+    font-weight: @weight;
+    src: url('@{fontPath}/fonts/@{family}/@{family}-@{fs}@{fw}.woff') format('woff'),
+         url('@{fontPath}/fonts/@{family}/@{family}-@{fs}@{fw}.woff2') format('woff2');
+  }
+}
+
+.font(coves; normal; 300);
+.font(coves; normal; 700);
+
+.font(open-sans; normal; 400);
+.font(open-sans; italic; 400);
+.font(open-sans; normal; 700);

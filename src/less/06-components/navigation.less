@@ -1,0 +1,173 @@
+/**
+ * Navigation bars
+ */
+.nav {
+  .nav--stacked;
+  .nude;
+
+  display: block;
+  font-family: @navigationFontFamily;
+
+  .page-localnav > & {
+    border: 1px solid #f0f0f0;
+    padding: (@baseline / 2) 0;
+
+    & + .nav {
+      border-top: 0;
+    }
+
+    &:first-of-type {
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 0 3px 3px;
+    }
+  }
+}
+
+.nav--stacked {
+  & > li,
+  a {
+    display: block;
+  }
+
+  a {
+    padding: (@baseline / 2) (@gutter / 2);
+  }
+}
+
+.nav--inline {
+  & > li,
+  & > li > a {
+    display: inline;
+  }
+}
+
+.nav--tabs,
+.nav--pills {
+  display: flex;
+  padding: (@baseline / 2) 0;
+
+  & > li {
+    margin-bottom: -1px;
+  }
+
+  a {
+    border: 1px solid @neutral3;
+    color: inherit;
+    padding: (@baseline / 2) (@gutter / 2);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  & > li + li a {
+    border-left: 0;
+  }
+
+  .is-active > a {
+    background: @neutral3;
+  }
+}
+
+.nav--tabs {
+  .is-active > a {
+    border-bottom-color: #fff;
+  }
+}
+
+.nav--pills {
+  > li:first-child a { border-radius: 50px 0 0 50px; }
+  > li:last-child a  { border-radius: 0 50px 50px 0; }
+}
+
+.nav [role="heading"] {
+  font-weight: bold;
+  padding: (@baseline / 2) (@gutter / 2);
+  margin: 0 0 .75em;
+
+  > a {
+    padding: 0;
+  }
+}
+
+
+/* Pagination */
+.pagination {
+  display: block;
+  list-style-type: none;
+  font-family: @navigationFontFamily;
+  font-size: 1.2rem;
+  margin-bottom: (@baseline * 2);
+  margin-top: (@baseline * 2);
+  padding-left: 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 1rem;
+
+    &:before { display: none; }
+  }
+}
+
+.pagination-page a,
+.pagination-page span {
+  border: 1px solid #ddd;
+  display: block;
+  min-width: 1em;
+  padding: .5em;
+
+  &:hover,
+  &:focus {
+    background-color: @linkBaseColor;
+    border-color: @linkBaseColor;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.pagination-page span {
+  background: @linkBaseColor;
+  border-color: @linkBaseColor;
+  color: contrast(@linkBaseColor, @textColor, @backgroundColor, 50%);
+}
+
+@media (min-width: @breakpointLap) {
+  .nav {
+    .page-localnav > & {
+      padding: (@baseline / 2) 0;
+    }
+  }
+
+  /* Pagination */
+  .pagination-prev,
+  .pagination-next {
+    a {
+      padding: .75em .5em;
+    }
+
+    span {
+      .at;
+    }
+  }
+
+  .pagination-page {
+    a,
+    span {
+      padding: .75em 1em;
+    }
+  }
+}
+
+@media (min-width: @breakpointDesk) {
+  .nav {
+    .page-localnav > & {
+      padding: (@baseline / 2) 1em;
+    }
+  }
+}

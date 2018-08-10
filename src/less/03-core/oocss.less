@@ -1,0 +1,99 @@
+/* Hides content, simple as that */
+.is-hidden {
+  display: none;
+}
+
+//
+// Media object
+// @source http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+
+.mo,
+.mo-body {
+  overflow: hidden;
+}
+
+.mo-embed {
+  display: block;
+  float:left;
+  margin-right: 1em;
+  max-width: 32%;
+
+  .mo--alt & {
+    float: right;
+    margin-left: 1em;
+    margin-right: 0;
+  }
+}
+
+
+//
+// Flag object
+// @source http://csswizardry.com/2013/05/the-flag-object/
+
+.fo {
+  display: table;
+  width: 100%;
+}
+
+.fo-embed,
+.fo-body {
+  display: table-cell;
+  vertical-align: middle;
+
+  .fo--top & {
+    vertical-align: top;
+  }
+
+  .fo--bottom & {
+    vertical-align: bottom;
+  }
+}
+
+.fo-embed {
+  padding-right: 1em;
+
+  .fo--alt & {
+    padding-left: 1em;
+    padding-right: 0;
+  }
+}
+
+.fo-body {
+  width: 100%;
+}
+
+
+//
+// Flexible container with fixed ratio
+// @source https://github.com/suitcss/flex-embed
+
+[class^="ratio-"],
+[class*=" ratio-"] {
+  position: relative;
+
+  object,
+  embed,
+  iframe,
+  .ratio-item {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.make-ratio(@number1; @number2) {
+  .ratio-@{number1}x@{number2} {
+    padding-top: (100% / @number1 * @number2);
+  }
+
+  .ratio-@{number2}x@{number1} {
+    padding-top: (100% / @number2 * @number1);
+  }
+}
+
+.make-ratio(2, 1);
+.make-ratio(3, 4);
+.make-ratio(16, 9);
+.make-ratio(4, 1);

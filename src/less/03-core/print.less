@@ -1,0 +1,67 @@
+/* Hide unnecessary elements */
+button,
+nav,
+.skiplinks,
+.govbar,
+.page-headernav,
+.anchor,
+.breadcrumbs,
+.page-title .search,
+.page-title .search-wording,
+.mcgyver,
+.page-localnav,
+.search-meta,
+.pagination,
+.page-footer,
+.back {
+  display: none !important;
+}
+
+* {
+  position: static !important;
+}
+
+.page-content {
+  display: block !important; // Remove flexbox display to print properly (Firefox)
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font: 400 10.5pt/14pt @bodyFontFamily;
+  line-height: 14pt;
+  margin: 0;
+  padding: 0 28pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @headingFontFamily;
+  page-break-after: avoid;
+}
+
+#map {
+  position: relative !important;
+}
+
+#map .ol-viewport {
+  position: relative !important;
+}
+
+#map .overlay-visible {
+  display: none !important;
+}
+
+#map .ol-scale-line {
+  max-width: 90px;
+  position: absolute !important;
+}
+
+#map .ol-overlaycontainer-stopevent .ol-overlay-container {
+  position: absolute !important;
+
+  .ol-zoom,
+  .ol-rotate,
+  .ol-full-screen {
+    display: none;
+  }
+}

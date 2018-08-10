@@ -1,0 +1,40 @@
+summary {
+  cursor: pointer;
+
+  &:focus { outline: none; }
+}
+
+/**
+ * Support for detail across all browsers
+ */
+.js details > * {
+  display: none;
+}
+
+.js details[open] > *,
+.js details > summary {
+  display: block;
+}
+
+[role="listbox"] {
+  .nude;
+  background: #fff;
+  position: absolute;
+
+  &[aria-expanded="false"] {
+    display: none;
+  }
+
+  > [role="option"] {
+    padding: .5em 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    + [role="option"] {
+      border-top: 1px solid #f0f0f0;
+    }
+  }
+}
+
+details summary::-webkit-details-marker { display:none; }

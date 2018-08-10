@@ -1,0 +1,209 @@
+html {
+  background: @backgroundColor;
+  color: @textColor;
+  font-family: @bodyFontFamily;
+  font-size: 62.5%;
+  hyphens: auto;
+  line-height: @line-height;
+}
+
+body {
+  font-size: @fontSize;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @headingFontFamily;
+  font-weight: 300;
+  hyphens: none;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin: 2em 0 1em;
+  position: relative;
+
+  &:before {
+    background: @color2;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 5rem;
+    height: 0.2rem;
+  }
+}
+
+h2 {
+  color: @color3Darker;
+  font-size: 2.3rem;
+  font-weight: bold;
+  line-height: 1.14;
+  margin: (@baseline * 3) 0 @baseline;
+}
+
+h3 {
+  color: @color2;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin: (@baseline * 2) 0 (@baseline / 2);
+}
+
+h4 {
+  color: @color1Darker;
+  font-size: 1.7rem;
+  line-height: 1.5;
+  margin: (@baseline * 4 / 3) 0 (@baseline / 2);
+}
+
+h5 {
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: (@baseline * 1.2);
+  margin: (@baseline * 4 / 3) 0 (@baseline / 2);
+}
+
+h6 {
+  font-size: @fontSize;
+  line-height: (@baseline * 1.2);
+  margin: (@baseline * 4 / 3) 0 (@baseline / 2);
+}
+
+
+h1, h2, h3,
+h4, h5, h6 {
+  small {
+    color: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    opacity: .7;
+  }
+}
+
+p {
+  margin: 0 0 @baseline;
+}
+
+pre {
+  margin: @baseline 0;
+}
+
+address {
+  color: @neutral1;
+}
+
+blockquote {
+  font-size: 1.7rem;
+  font-style: italic;
+  margin: (@baseline * 2) 0;
+  padding: @baseline (@gutter * 2);
+  position: relative;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:before,
+  &:after {
+    content: "“";
+    color: @color1Lighter;
+    font-size: 4rem;
+    float: left;
+    line-height: 1;
+  }
+
+  &:before {
+    margin: 0 0 0 -(@baseline * 2);
+  }
+
+  &:after {
+    content: "„";
+    float: right;
+    margin: -(@baseline * 6) -(@baseline * 2) 0 0;
+  }
+
+  small,
+  cite {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  small {
+    display: block;
+    text-align: right;
+  }
+
+  cite {
+    color: @color2;
+  }
+
+  small + p {
+    margin-top: 3rem;
+  }
+}
+
+//
+// Phrasing elements
+
+sub {
+  font-feature-settings: subs;
+  font-variant-position: sub;
+}
+
+sup {
+  font-feature-settings: sups;
+  font-variant-position: super;
+}
+
+/**
+ * Code samples
+ */
+
+pre,
+code,
+samp {
+  font-family: @codeFontFamily;
+}
+
+//
+// Common HTML patterns
+.subhead {
+  color: #686868;
+  font-family: @headingFontFamily;
+  font-size: .75em;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 0 0 .8em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.intro {
+  margin: 0 0 (@baseline * 2);
+}
+
+//
+// Small print
+.meta {
+  color: @neutral1;
+  font-family: @navigationFontFamily;
+}
+
+// Assistive text
+.at,
+.assistivetext,
+[class*=" icon-"] + span,
+[class^="icon-"] + span,
+.mcgyver svg.icon + span {
+  .at();
+}

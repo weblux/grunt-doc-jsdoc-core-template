@@ -1,0 +1,33 @@
+@namespace xlink "http://www.w3.org/1999/xlink";
+
+.iconset {
+  path,
+  g {
+    fill: inherit;
+    stroke: inherit;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+
+  > use {
+    stroke: none;
+    fill: inherit;
+  }
+
+  button &,
+  a &,
+  .btn & {
+    > use {
+      fill: currentColor;
+    }
+  }
+}
+
+.icon--small {
+  width: 12px;
+  height: 12px;
+}

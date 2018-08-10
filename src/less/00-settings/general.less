@@ -1,0 +1,55 @@
+//
+// Settings
+// --------------------------------------------------------
+
+//
+// Compatibility mode
+// (off by default)
+
+@ieCompat: false;
+
+/*
+ * Breakpoints
+ *
+ * Three breaks occur by default, they directly map to three
+ * situations we want to take into account in our designs:
+ *
+ * - palm  the user visits the website using a device that fits in
+ *         her own hand, usually a smartphone but this is never implied.
+ *         She can be standing in the bus, sitting at her desk, walking
+ *         on the streets, ...
+ * - lap   the user visits the website using a device that holds in
+ *         both hands, usually a tablet but this is never implied.
+ *         She can be sitting on the couch, lying in her bed, having
+ *         breakfast standing in front of the TV, ...
+ * - desk  the user visits the website using a device fixed on a rigid
+ *         surface, usually a desktop computer but this is never implied.
+ *         She can be in a hurry at work, reading the news while sipping
+ *         her coffee, 'in the zone' while doing her job, ...
+ */
+
+@breakpointPalm: 20em;
+@breakpointLap: 45em;
+@breakpointDesk: 61.5em;
+
+/*
+ * Layout
+ */
+ // layout var is Overrided by the gruntfile to easely swtich layout
+ // (HTML change is required to work properly)
+@layout: 'default';
+@maxPageWidth: 1280px;
+@baseline: 1.5rem;
+@gutter: 2rem;
+
+
+/*
+ * Typography
+ */
+@bodyFontFamily: 'open-sans', Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+@headingFontFamily: 'coves', Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+@navigationFontFamily: @bodyFontFamily;
+@codeFontFamily: Consolas, Monaco, 'Andale Mono', monospace;
+
+@fontSize: 1.6rem;
+@line-height: 1.5;

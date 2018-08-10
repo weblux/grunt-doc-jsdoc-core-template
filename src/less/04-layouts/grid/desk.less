@@ -1,0 +1,11 @@
+@columns: 16;
+@unit: 100% / @columns;
+@env: desk;
+
+.desk-full {
+  float: none;
+  width: auto;
+}
+
+.make-grid-units(16, @env);
+.make-grid-spans(16, @env);

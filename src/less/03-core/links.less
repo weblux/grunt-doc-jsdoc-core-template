@@ -1,0 +1,105 @@
+/*csslint ids: false */
+
+//
+// Links
+// --------------------------------------------------------
+
+.a() {
+  color: @linkBaseColor;
+  text-decoration: none;
+
+  &:visited {
+    color: desaturate(@linkBaseColor, 10%);
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 1px dotted #212121;
+    outline: 1px dotted currentColor;
+  }
+
+  &:active {
+
+  }
+}
+
+a {
+  .a;
+}
+
+//
+// Skip links are out of view, that is until they gain :focus
+.skiplinks > a {
+  .at(true);
+
+  background: @linkBaseColor;
+  color: #fff;
+  z-index: 32768;
+
+  &:after {
+    content: ' \2193';
+  }
+
+  &:focus {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 1em;
+    width: 100%;
+    line-height: 3;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+// Back to top
+.back {
+  background: #fff;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: @gutter;
+  z-index: 1;
+  height: 48px;
+  width: 48px;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: @color2;
+    color: #fff;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  span { .at(); }
+
+  @media (min-width: 61.5em) {
+    display: block;
+  }
+}
+
+// Block-level link elements
+.blocklink {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+}

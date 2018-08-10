@@ -1,0 +1,50 @@
+/**
+ * Clearing floats
+ */
+.clear {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.clear when (@ieCompat) {
+  *zoom: 1;
+}
+
+/**
+ * Hiding texts without compromising accessibility
+ */
+.at(...) {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+.at(@link) when (@link) {
+  &:focus {
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+
+
+/**
+ * Restore Hiding texts
+ */
+.notat(...) {
+  clip: auto;
+  height: auto;
+  overflow: visible;
+  position: static !important;
+  width: auto;
+}

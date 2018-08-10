@@ -1,0 +1,136 @@
+.table--container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  white-space: nowrap;
+
+  caption {
+    color: #333333;
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: @baseline 0;
+    text-align: left;
+  }
+
+  td,
+  th {
+    font-size: 1.4rem;
+    font-weight: normal;
+    hyphens: none;
+    padding: @baseline @gutter;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    color: #17425d;
+  }
+
+  td {
+    color: #061d25;
+  }
+
+  tr {
+    border-bottom: 1px solid #dfdede;
+  }
+
+  thead tr {
+    border-bottom-color: #60b1e3;
+  }
+
+  thead th:first-child,
+  tbody th:first-child {
+    border-right: 1px solid #cccccc;
+  }
+}
+
+// Striped tables
+.table--striped tbody tr:nth-child(even) {
+  background-color: #f5f5f4;
+}
+
+// Striped tables on hover
+.table--hover tbody tr:hover {
+  background-color: #60b1e3;
+
+  td, th { color: #fff; }
+}
+
+// Readable tables with minimal distraction.
+// Source: http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001IV
+.table--tufte tbody tr:nth-child(3n+1) {
+  border-top: 1px dotted @neutral2;
+}
+
+.table--collapse,
+.table--directory {
+  @media (max-width: @breakpointLap) {
+    overflow: hidden; // Need for IE9 fix (float -> BFC)
+
+    caption {
+      width: 100%;
+      display: block;
+    }
+
+    // Hide unwanted element
+    tbody td:not([data-header]),
+    thead {
+      display: none;
+    }
+
+    tbody th:first-child {
+      border-right: none;
+    }
+
+    &,
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+      overflow: hidden\9; // Need for IE9 fix
+      width: 100%;
+    }
+
+    tbody td,
+    tbody th {
+      border: none;
+    }
+
+    tbody tr + tr,
+    tbody tr {
+      border-top: 2px solid @neutral1;
+    }
+
+    th[data-header],
+    td[data-header] {
+      box-sizing: border-box;
+      border-top: 1px solid @neutral1;
+      position: relative;
+      padding-left: 50%;
+      min-height: 4rem; // minimal value to let the :before visible (as he's positionated as an absolute element he's out of the flow)
+      width: 100%\9; // Need for IE9 fix
+      float: left\9; // Need for IE9 fix
+
+
+      &:before {
+        box-sizing: border-box;
+        content: attr(data-header);
+        hyphens: none;
+        padding: 1.2rem 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 45%;
+      }
+    }
+
+    .no-flexwrap & {
+      table-layout: fixed; // need for IE9
+    }
+  }
+}

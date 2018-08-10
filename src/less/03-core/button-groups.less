@@ -1,0 +1,62 @@
+.btngroup {
+  display: inline-block;
+  position: relative;
+
+  .btn {
+    border-radius: 0;
+    float: left;
+    position: relative;
+
+    &:first-child {
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+
+    & + .btn {
+      margin-left: -1px;
+    }
+  }
+
+  & > .btngroup {
+    float: left;
+
+    & + .btn,
+    & + .btngroup {
+      margin-left: -1px;
+    }
+
+    &:last-child .btn {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+
+}
+
+.btngroup--block {
+  .clear;
+
+  display: block;
+
+  & > .btn {
+    text-align: left;
+
+    &:after {
+      float: right;
+    }
+  }
+}
+
+.btngroup--small {
+  font-size: .8em;
+  line-height: (@line-height / .8);
+
+  .btn {
+    padding: .25em .5em;
+  }
+}

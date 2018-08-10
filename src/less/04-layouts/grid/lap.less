@@ -1,0 +1,11 @@
+@columns: 8;
+@unit: 100% / @columns;
+@env: lap;
+
+.lap-full {
+  float: none;
+  width: auto;
+}
+
+.make-grid-units(8, @env, @breakpointDesk);
+.make-grid-spans(8, @env, @breakpointDesk);

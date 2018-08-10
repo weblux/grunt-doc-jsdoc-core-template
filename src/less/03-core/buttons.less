@@ -1,0 +1,91 @@
+input[type="submit"],
+button,
+.btn,
+.btn--primary {
+  background: transparent;
+  box-sizing: border-box;
+  border: 1px solid @color2;
+  color: @color2;
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: @line-height;
+  padding: @baseline @gutter;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+
+  &:visited {
+    color: @color2;
+  }
+
+  &:hover,
+  &:focus {
+    background: @color2;
+    color: contrast(@color2, @textColor, #fff, 50%);
+    text-decoration: none;
+  }
+
+  &:active {
+    top: 1px;
+  }
+
+  &[disabled]:focus,
+  &[disabled]:hover,
+  &[disabled] {
+    background: #d2d3d1;
+    border-color: #d2d3d1;
+    color: #949494;
+  }
+
+  &[disabled]:active {
+    top: 0;
+  }
+}
+
+.btn.btn--secondary,
+.btn.btn--tertiary {
+  border-color: #6d6e71;
+  color: #6d6e71;
+
+  &:visited {
+    color: #6d6e71;
+  }
+
+  &:hover,
+  &:focus {
+    background: #6d6e71;
+    color: #fff;
+  }
+
+  &[disabled] {
+    background: #d2d3d1;
+    border-color: #d2d3d1;
+    color: #949494;
+
+    &:active {
+      top: 0;
+    }
+  }
+}
+
+.btn--nude {
+  background: transparent;
+  border: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  position: static;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: none;
+  }
+}
+
+/* Block buttons */
+.btn--block {
+  display: block;
+  width: 100%;
+}

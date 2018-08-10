@@ -1,0 +1,44 @@
+/* Utility classes */
+.a--left {
+  float: left;
+  margin-right: @gutter;
+}
+.a--right {
+  float: right;
+  margin-left: @gutter;
+}
+
+.a--left,
+.a--right {
+  max-width: 32%;
+}
+
+.hightlight {
+  background: #f2f4f4;
+  display: block;
+  border-left: 4px solid @color2;
+  margin: @baseline 0;
+  padding: @baseline @gutter;
+  position: relative;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:before,
+  &:after {
+    background: #f2f4f4;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 3px;
+    position: absolute;
+    top: 16px;
+    left: -4px;
+  }
+
+  &:after {
+    top: 22px;
+    height: 4px;
+  }
+}

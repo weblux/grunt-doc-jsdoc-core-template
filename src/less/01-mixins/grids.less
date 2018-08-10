@@ -1,0 +1,48 @@
+.make-grid() {
+  .clear;
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  margin-left: (@gutter / -2);
+  margin-right: (@gutter / -2);
+}
+
+.make-grid-units(@total; @env) {
+  .make-grid-units-r(1, @env, @total);
+}
+
+.make-grid-units(@total; @env; @breakpoint) {
+  @media (max-width: unit((unit(@breakpoint) - .01), get-unit(@breakpoint))) {
+    .make-grid-units-r(1, @env, @total);
+  }
+}
+
+.make-grid-units-r(@index; @env; @total) when (@index <= @total) {
+  .@{env}-w@{index} {
+    flex: 0 0 (100% * @index / @total);
+    max-width: (100% * @index / @total);
+    width: (100% * @index / @total);
+  }
+
+  .make-grid-units-r(@index + 1, @env, @total);
+}
+
+.make-grid-spans(@total; @env) {
+  .make-grid-spans-r(1, @env, @total);
+}
+
+.make-grid-spans(@total; @env; @breakpoint) {
+  @media (max-width: (@breakpoint - .01em)) {
+    .make-grid-spans-r(1, @env, @total);
+  }
+}
+
+.make-grid-spans-r(@index; @env; @total) when (@index < @total) {
+  .@{env}-s@{index} {
+    margin-left: (100% * @index / @total);
+  }
+
+  .make-grid-spans-r(@index + 1, @env, @total);
+}
