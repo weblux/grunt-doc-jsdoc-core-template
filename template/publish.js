@@ -98,7 +98,7 @@ function updateItemName(item) {
 
   if (attributes && attributes.length) {
     itemName = util.format(
-      '%s<span class="signature-attributes">%s</span>',
+      '%s <span class="signature-attributes">%s</span>',
       itemName,
       attributes.join(", ")
     )
